@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.Persistance.Contracts
+namespace HR.LeaveManagement.Application.Contracts.Persistance
 {
     public interface IGenericRepository<T> where T : class
     {
@@ -12,7 +12,7 @@ namespace HR.LeaveManagement.Application.Persistance.Contracts
         Task<IReadOnlyList<T>> GetAll();
         Task<bool> Exists(int id);
         Task<T> Add(T entity);
-        Task<T> Update(T entity);
-        Task<T> Delete(T entity);
+        Task Update(T entity);
+        Task Delete(T entity);
     }
 }

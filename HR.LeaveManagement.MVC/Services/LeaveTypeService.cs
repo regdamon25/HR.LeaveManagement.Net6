@@ -23,7 +23,7 @@ namespace HR.LeaveManagement.MVC.Services
             {
                 var response = new Response<int>(); //
                 CreateLeaveTypeDto createLeaveType = _mapper.Map<CreateLeaveTypeDto>(leaveType); //Create the leaveType DTO for the db...do the mapping from VM to DTO
-                //AddBearerToken(); //Add the bearer token
+                AddBearerToken(); //Add the bearer token
                 var apiResponse = await _httpClient.LeaveTypesPOSTAsync(createLeaveType); 
                 if(apiResponse.Success)
                 {
@@ -49,7 +49,7 @@ namespace HR.LeaveManagement.MVC.Services
         {
             try
             {
-                //AddBearerToken();
+                AddBearerToken();
                 await _client.LeaveTypesDELETEAsync(id);
                 return new Response<int>() { Success = true };
             }
@@ -61,14 +61,14 @@ namespace HR.LeaveManagement.MVC.Services
 
         public async Task<LeaveTypeVM> GetLeaveTypeDetails(int id)
         {
-            //AddBearerToken();
+            AddBearerToken();
             var leaveType = await _client.LeaveTypesGETAsync(id);
             return _mapper.Map<LeaveTypeVM>(leaveType);
         }
 
         public async Task<List<LeaveTypeVM>> GetLeaveTypes()
         {
-            //AddBearerToken();
+            AddBearerToken();
             var leaveTypes = await _client.LeaveTypesAllAsync();
             return _mapper.Map<List<LeaveTypeVM>>(leaveTypes);
         }
@@ -79,7 +79,7 @@ namespace HR.LeaveManagement.MVC.Services
             {
                 LeaveTypeDto leaveTypeDto = _mapper.Map<LeaveTypeDto>(leaveType); //Turn the LeaveTypeVM to a LeaveTypeDTO
 
-                //AddBearerToken(); //Add the Bearer Token
+                AddBearerToken(); //Add the Bearer Token
 
                 await _client.LeaveTypesPUTAsync(id.ToString(), leaveTypeDto); // Calling the update method from out generated _client, takes a string id so we need
                                                                                // to convert it from an int to a string, along with the id we send the updated

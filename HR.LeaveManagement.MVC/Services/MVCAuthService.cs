@@ -15,7 +15,7 @@ namespace HR.LeaveManagement.MVC.Services
         private readonly IHttpContextAccessor _httpContextAccessor;
         private JwtSecurityTokenHandler _tokenHandler;
 
-        public MVCAuthService(IMapper mapper, IClient client, ILocalStorageService localStorage, IHttpContextAccessor httpContextAccessor, JwtSecurityTokenHandler tokenHandler)
+        public MVCAuthService(IMapper mapper, IClient client, ILocalStorageService localStorage, IHttpContextAccessor httpContextAccessor)
             : base(client, localStorage)
         {
             _mapper = mapper;

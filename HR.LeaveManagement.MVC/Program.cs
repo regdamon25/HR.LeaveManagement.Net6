@@ -45,6 +45,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseCookiePolicy();
 app.UseAuthentication();
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
